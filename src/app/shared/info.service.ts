@@ -1,23 +1,52 @@
 import { HttpClient ,HttpErrorResponse} from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import {Observable,of,throwError} from 'rxjs';
-import {Image} from '../models/image.model';
+import {Image} from '../models/image';
 import { catchError,tap } from 'rxjs/operators';
+import { Album } from "../models/album";
+import { User } from "../models/user";
+
 
 @Injectable()
-export class ImageService{
+export class InfoService{
     readonly photos='https://jsonplaceholder.typicode.com/photos';
+    readonly users='https://jsonplaceholder.typicode.com/users';
+    readonly albums_root='https://jsonplaceholder.typicode.com/albums';
     
+
+
+
 
     constructor(private http:HttpClient){}
 
     getImages():Observable<Image[]>{
-        return this.http.get<Image[]>(this.photos).pipe(
-            tap(data=>console.log('All: '+JSON.stringify(data))),
+     
+       return  this.http.get<Image[]>(this.photos).pipe(
             catchError(this.handleError)
         );
+     
+ 
 
     }
+
+
+ 
+
+ 
+  getUserByUserId(id:number):Observable<User>{
+
+    return this.http.get<User>(this.users+`/${id}`);
+
+  }
+  getAlbumByAlbumId(id:number):Observable<Album>{
+
+    return this.http.get<Album>(this.albums_root+`/${id}`).pipe(
+            catchError(this.handleError)
+        );
+ 
+    }
+ 
+   
    
     private handleError(err: HttpErrorResponse) {
         // in a real world app, we may send the server to some remote logging infrastructure
