@@ -2,16 +2,21 @@ import { Component, Input, OnInit } from "@angular/core";
 import { InfoService } from "../shared/info.service";
 import {Image} from '../models/image';
 import {User} from '../models/user';
-import { Album } from "../models/album";
+
 @Component({
     selector:'home',
-    templateUrl:'./home.component.html'
+    templateUrl:'./home.component.html',
+    styleUrls:[
+        `./home.component.css`
+    ]
 
 })
 export class HomeComponent implements OnInit{
     imagesWithUsers:Map<User,Image>;
     errorMessage: string;
     images:Image[]
+    users:User[]
+
 
 
 
@@ -19,8 +24,8 @@ export class HomeComponent implements OnInit{
 
     ngOnInit(){
      this.infoService.getImages().subscribe(images=>this.images=images);
+     this.infoService.getUsers().subscribe(users=>this.users=users);
 
-     
     }
 
  

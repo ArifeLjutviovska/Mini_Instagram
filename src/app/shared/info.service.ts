@@ -7,6 +7,7 @@ import { Album } from "../models/album";
 import { User } from "../models/user";
 
 
+
 @Injectable()
 export class InfoService{
     readonly photos='https://jsonplaceholder.typicode.com/photos';
@@ -24,12 +25,35 @@ export class InfoService{
        return  this.http.get<Image[]>(this.photos).pipe(
             catchError(this.handleError)
         );
-     
- 
 
     }
+  
+    getImageById(id):Observable<Image>{
+     
+      return this.http.get<Image>(this.photos+`/${id}`).pipe(
+           catchError(this.handleError)
+       );
 
+   }
 
+    getUserByImage(id):Observable<User>{
+      let user:Observable<User>
+      this.getImageById(id).subscribe(image=>{
+        this.getAlbumByAlbumId(image.albumId).subscribe(album=>{
+          user= this.getUserByUserId(album.userId);
+        })
+      })
+      console.log(user)
+      return user;
+    }
+
+    getUsers():Observable<User[]>{
+     
+      return  this.http.get<User[]>(this.users).pipe(
+           catchError(this.handleError)
+       );
+
+   }
  
 
  

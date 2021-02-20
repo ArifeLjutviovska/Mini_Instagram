@@ -1,7 +1,7 @@
 <nav class="navbar navbar-light justify-content-between navColor">
      <div class="container">
         <div class="navItems">
-          <a class="navbar-brand instaLogo"><img  src="assets/instagram-logo.png"></a>
+          <a class="navbar-brand instaLogo" [routerLink]="['/images']"><img  src="assets/instagram-logo.png"></a>
         </div>
         <div class="navItems">
          <form class="form-inline searchForm">
@@ -10,7 +10,7 @@
          </form>
         </div>
         <div class="navItems">
-          <a class="homeA" ><i class="fa fa-home fa-2x"></i></a>  
+          <a class="homeA" [routerLink]="['/images']" ><i class="fa fa-home fa-2x"></i></a>  
        </div>
        <div class="navItems">
         <a class="login" >Login</a>  

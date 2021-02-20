@@ -1,8 +1,8 @@
 import { Component, Input, OnInit } from "@angular/core";
-import {Album} from '../models/album'
-import { Image } from "../models/image";
-import { User } from "../models/user";
-import {InfoService} from '../shared/info.service'
+import {Album} from '../../models/album'
+import { Image } from "../../models/image";
+import { User } from "../../models/user";
+import {InfoService} from '../../shared/info.service'
 
 @Component({
     selector:'postList',

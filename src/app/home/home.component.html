@@ -1,3 +1,25 @@
-<div *ngFor="let img of images">
-    <postList [image]="img"></postList>
+<div class="container">
+   <div class="row">
+        <div class="col-lg-10">
+           <div class="row">
+             <div *ngFor="let img of images | thirdelement; let i = index">
+             <postList [image]="img" ></postList>
+             </div>
+          </div>
+        </div>
+      <div class="col-lg-2">
+        <div class="users">
+            <h5 class="title">Users:</h5>
+            <div  *ngFor="let user of users">
+                  <div class="row">
+                    <div class="col-9">
+                      <span class="userName">{{user.name}}</span>
+                    </div>
+                    <div class="col">
+                      <a class="seeProfile">See profile</a>
+                   </div>
+            </div>
+        </div> 
+      </div>
+   </div>
 </div>
