@@ -8,7 +8,7 @@
         
                 <div class="user" style="font-size: large;font-weight: bold;"><img class="imgUser"  src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" alt="profile-img"  /> <a class="usernameTitle" [routerLink]="['/users',user.id]">{{user?.username}}</a></div>
                 <div>
-                    <button (click)="editClicked()"  class="btn btn-default imagesButton edit"  [ngClass]="{ 'is-active': isSelectedTab === 'Edit' }">
+                    <button (click)="editClicked(image.id)"  class="btn btn-default imagesButton edit"  [ngClass]="{ 'is-active': isSelectedTab === 'Edit' }">
                             <span >Edit</span>  
                     </button>
                     <button (click)="deleteClicked(image.id)"  class="btn btn-default imagesButton delete"  [ngClass]="{ 'is-active': isSelectedTab === 'Delete' }">
@@ -20,7 +20,7 @@
                 <div class="user"><span style="font-weight: bold;">Image Title: </span>{{image?.title}}</div>
                 <div class="user"><span style="font-weight: bold;">Album Id: </span>{{image?.albumId}}</div>
                 <div class="user"><span style="font-weight: bold;">URL: </span>{{image?.url}}</div>
-                <div class="user"><span style="font-weight: bold;">Thumbnail Url: </span>{{image?.thumbnailUrl}}</div>
+
 
                 <hr style="margin-top: 500px;">
             </div>

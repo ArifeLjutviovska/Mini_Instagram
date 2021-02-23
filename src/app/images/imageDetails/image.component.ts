@@ -21,8 +21,20 @@ export class ImageComponent implements OnInit{
     ngOnInit(){
 
         const id = +this.route.snapshot.paramMap.get('id');
+        if(id<=5000){
         this.infoService.getImageById(id).subscribe(image=>{
-            this.image=image;
+            let editedImg:Image;
+            this.infoService.updatedImages.forEach(img=>{
+                if(img.id===image.id){
+                    editedImg=img;
+                }
+            })
+            if(editedImg){
+                this.image=editedImg;
+            }else{
+                this.image=image;
+            }
+            
             this.infoService.getAlbumByAlbumId(image.albumId).subscribe(album=>{
                 this.infoService.getUserByUserId(album.userId).subscribe(user=>{
                     this.user=user;
@@ -30,15 +42,38 @@ export class ImageComponent implements OnInit{
                 })
             })
         });
+    }else{
+        this.infoService.uploadedImages.forEach(img=>{
+            if(img.id===id){
+               let image:Image=img;
+               let editedImg:Image;
+               this.infoService.updatedImages.forEach(img=>{
+                   if(img.id===image.id){
+                       editedImg=img;
+                   }
+               })
+               if(editedImg){
+                   this.image=editedImg;
+               }else{
+                   this.image=image;
+               }
+                this.infoService.getAlbumByAlbumId(img.albumId).subscribe(album=>{
+                    this.infoService.getUserByUserId(album.userId).subscribe(user=>{
+                        this.user=user;
+                
+                    })
+                })
+            }
+        })
+    }
         
 
     }
   
-    editClicked(){
+    editClicked(id:number){
         this.isSelectedTab="Edit"
-        const id = +this.route.snapshot.paramMap.get('id');
-        const body={title:'test'}
-        this.infoService.updateImage(id,body).subscribe(image=>this.image.title=image.title)
+        //this.infoService.updateImage(id,body).subscribe(image=>this.image.title=image.title)
+        this.router.navigate([ `images/${id}/edit`])
 
      }
      deleteClicked(id:number){
@@ -50,4 +85,5 @@ export class ImageComponent implements OnInit{
           
       }
      }
+     
 }

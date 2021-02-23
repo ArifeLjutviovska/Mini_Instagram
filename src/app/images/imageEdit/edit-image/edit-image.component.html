@@ -1,0 +1,32 @@
+<div class="col-md-12">
+    <h3>Edit Image</h3>
+</div>
+<div class="col-md-6">
+    <form [formGroup]="editImageForm" (ngSubmit)="saveImage(editImageForm.value)">
+        <div class="form-group">
+            <label for="title">Title:</label>
+            <input formControlName="title" 
+                     id="title" 
+                     type="text" 
+                     class="form-control" 
+                     name="title"
+                     placeholder="image?.title"/>
+        </div>
+        <div class="form-group">
+            <label for="url">URL:</label>
+            <input formControlName="url" 
+                     id="url" 
+                     type="text" 
+                     name="url"
+                     class="form-control" 
+                     placeholder="image?.url"/>
+        </div>
+        <div class="form-group">
+            <label for="albumId">AlbumId:</label>
+            <select id="albumId" name="albumId" class="form-control"  formControlName="albumId">
+                <option *ngFor="let album of albums" [ngValue]="album.id">{{ album.id }}</option>
+            </select>
+        </div>
+        <button type="submit"   class="btn btn-primary">Save</button>
+    </form>
+</div>

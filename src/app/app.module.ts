@@ -16,7 +16,10 @@ import { UserProfileComponent } from './user/profile/user.profile.component';
 import { UserComponent } from './user/profile/user.component';
 import { UserImageComponent } from './user/profile/user.images.component';
 import { ReactiveFormsModule } from '@angular/forms';
-
+import { UploadImageComponent } from './images/imageUpload/upload-image/upload-image.component';
+import { EditImageComponent } from './images/imageEdit/edit-image/edit-image.component';
+import {FileUploadModule} from 'ng2-file-upload';
+import { ReversePipe } from './shared/reversePipe';
 
 @NgModule({
   declarations: [
@@ -29,6 +32,9 @@ import { ReactiveFormsModule } from '@angular/forms';
    UserProfileComponent,
    UserComponent,
    UserImageComponent,
+   UploadImageComponent,
+   EditImageComponent,
+   ReversePipe
 
   ],
   imports: [
@@ -36,6 +42,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    FileUploadModule,
     RouterModule.forRoot(appRoutes)
 
   ],
