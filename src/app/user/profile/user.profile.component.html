@@ -44,5 +44,8 @@
     </section>
   <hr>
    <user *ngIf="isSelectedTab==='Images'" [user]="user" [albums]="albums" ></user>
+   <div *ngIf="isSelectedTab==='Upload'" class="imageUpload">
+       <span class="txtUpload">Click here to upload</span><button (click)="uploadImage()" class="btn btn-primary uploadButton">Upload Image</button>
+   </div>
 </div>
 </div>

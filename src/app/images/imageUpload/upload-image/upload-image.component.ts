@@ -66,5 +66,8 @@ constructor(private infoService:InfoService,private router:Router){}
    }
    
   }
+  cancel(){
+    this.router.navigate(['images']);
+  }
 
 }

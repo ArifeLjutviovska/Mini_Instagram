@@ -102,5 +102,9 @@ export class EditImageComponent implements OnInit {
       this.router.navigate(['images',id]);
     }
   }
+  cancel(){
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.router.navigate([`images/${id}`]);
+  }
 
 }

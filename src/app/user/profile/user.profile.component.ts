@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { Album } from "../../models/album";
 import { Image } from "../../models/image";
 import { User } from "../../models/user";
@@ -18,7 +18,7 @@ export class UserProfileComponent implements OnInit{
     
 
 
-    constructor(private route:ActivatedRoute,private infoService:InfoService){}
+    constructor(private route:ActivatedRoute,private infoService:InfoService,private router:Router){}
 
     ngOnInit(){
         const id = +this.route.snapshot.paramMap.get('id');
@@ -32,5 +32,8 @@ export class UserProfileComponent implements OnInit{
     }
     uploadClicked(){
      this.isSelectedTab="Upload"
+    }
+    uploadImage(){
+       this.router.navigate(['upload']);
     }
 }

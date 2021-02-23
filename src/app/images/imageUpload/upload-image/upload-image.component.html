@@ -1,13 +1,17 @@
+<div class="container">
+    <div class="formCard">
 <div class="col-md-12">
-    <h3>Upload Image</h3>
+    <h4 class="cardTitle">Upload Image</h4>
 </div>
+<div class="fileUpload">
 <img [src]="thumb" *ngIf="ready"/>
-<input type="file" ng2FileSelect [uploader]="uploader">
-
+<input type="file"  ng2FileSelect [uploader]="uploader">
+</div>
 <div class="col-md-6">
     <form [formGroup]="uploadImageForm" (ngSubmit)="imageUpload(uploadImageForm.value)">
-        <div class="form-group">
-            <label for="title">Title:</label>
+        <div class="forms">
+        <div class="form-group row">
+            <label for="title" >Title:</label>
             <input formControlName="title" 
                      id="title" 
                      type="text" 
@@ -15,7 +19,9 @@
                      name="title"
                     />
         </div>
-        <div class="form-group">
+    </div>
+    <div class="forms">
+        <div class="form-group row">
             <label for="url">URL:</label>
             <input formControlName="url" 
                      id="url" 
@@ -24,12 +30,21 @@
                      class="form-control" 
                      />
         </div>
-        <div class="form-group">
+    </div>
+    <div class="forms">
+        <div class="form-group row">
             <label for="albumId">AlbumId:</label>
             <select id="albumId" name="albumId" class="form-control"  formControlName="albumId">
                 <option *ngFor="let album of albums" [ngValue]="album.id">{{ album.id }}</option>
             </select>
         </div>
-        <button type="submit"   class="btn btn-primary">Save</button>
+    </div>
+    <div >
+        <button type="submit"   class="btn btn-primary saveButton">Save</button>
+        <button (click)="cancel()"  class="btn btn-primary cancelButton">Cancel</button>
+
+  </div>
     </form>
+</div>
+</div>
 </div>

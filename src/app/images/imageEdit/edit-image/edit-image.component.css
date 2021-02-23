@@ -1,0 +1,31 @@
+img{
+    width: 200px;
+    margin-left: -135px;
+}
+.formCard{
+
+    margin-top: 60px;
+    margin-left: 350px;
+}
+.cardTitle{
+ 
+  margin-top: 15px;
+}
+.fileUpload{
+    margin-left: 150px;
+    margin-top: 30px;
+}
+.inputs{
+    width: 200px;
+}
+.forms{
+    margin-top: 30px;
+}
+.saveButton{
+
+    width: 100px;
+}
+.cancelButton{
+    margin-left:10px;
+    width: 100px;
+}
