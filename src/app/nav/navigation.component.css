@@ -6,19 +6,23 @@
     margin-left: 95px;
 }
 .searchInput{
-    height: 28px;
+    height: 35px;
     background-color: #f9f9f9;
-    text-align: center;
     font-family: 'Helvetica',FontAwesome, sans-serif; 
     width: 200px;
-    font-size: small;
 
  
 }
 
 .searchForm{
     margin-left: 50px;
-    width: 300px;
+    width: 350px;
+}
+
+.searchButton{
+    height: 35px;
+    margin-left: -10px;
+    text-align: center;
 }
 .navItems{
    

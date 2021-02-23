@@ -23,8 +23,6 @@ export class InfoService{
    
     constructor(private http:HttpClient){}
 
-
-
     getImages():Observable<Image[]>{
      
        return  this.http.get<Image[]>(this.photos).pipe(
@@ -40,6 +38,8 @@ export class InfoService{
        );
 
    }
+
+  
     deleteImage(id){
 
       this.deletedImageId.push(id);

@@ -4,9 +4,9 @@
           <a class="navbar-brand instaLogo" [routerLink]="['/images']"><img  src="assets/instagram-logo.png"></a>
         </div>
         <div class="navItems">
-         <form class="form-inline searchForm">
-           <input class="searchInput  form-control mr-sm-2"  type="search" placeholder="&#xf002; Search" aria-label="Search"/>
-
+         <form class="form-inline searchForm" [formGroup]="searchForm" (ngSubmit)="searchClicked(searchForm.value)">
+           <input class="searchInput  form-control mr-sm-2"  type="search" formControlName="search" name="search" aria-label="Search"/>
+           <button class="btn btn-secondary searchButton" type="submit"><i class="fa fa-search"></i></button>
          </form>
         </div>
         <div class="navItems">
