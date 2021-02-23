@@ -25,41 +25,43 @@ export class HomeComponent {
     constructor(private infoService:InfoService,private router:Router,private route:ActivatedRoute){
      
     }
+    fetchData(){
+        let search:string='';
+        this.infoService.getUsers().subscribe(users=>this.users=users);
+        this.route.queryParams.pipe(
+            filter(params => params.searchParam)
+        )
+        .subscribe(params => {
+          search = params.searchParam;
+        }
+      );
+        
+        this.infoService.getImages().subscribe(images=>{
+            this.images=images.filter(img=>!this.infoService.deletedImageId.includes(img.id));
+            this.infoService.uploadedImages.forEach(img=>this.images.push(img));
+            let serviceUpdatedImagesIds:number[]=[];
+            this.infoService.updatedImages.forEach(img=>serviceUpdatedImagesIds.push(img.id))
+           this.images.filter(img=>serviceUpdatedImagesIds.includes(img.id)).forEach(img=>this.infoService.updatedImages.forEach(image=>{
+                if(img.id===image.id){
+                    this.images[this.images.indexOf(img)]=image;
+                }
+            }))
+            if(search===''){
+               this.filteredImages=this.images;
+           }else{
+               this.filteredImages=this.performFilter(search);
+               console.log(this.filteredImages.length)
+           }
+            
+            
+        });
+       
+   
+    }
 
     ngOnInit(){
-        let search:string='';
-     this.infoService.getUsers().subscribe(users=>this.users=users);
-     this.route.queryParams.pipe(
-         filter(params => params.searchParam)
-     )
-     .subscribe(params => {
-       search = params.searchParam;
-     }
-   );
-     
-     this.infoService.getImages().subscribe(images=>{
-         this.images=images.filter(img=>!this.infoService.deletedImageId.includes(img.id));
-         this.infoService.uploadedImages.forEach(img=>this.images.push(img));
-         let serviceUpdatedImagesIds:number[]=[];
-         this.infoService.updatedImages.forEach(img=>serviceUpdatedImagesIds.push(img.id))
-        this.images.filter(img=>serviceUpdatedImagesIds.includes(img.id)).forEach(img=>this.infoService.updatedImages.forEach(image=>{
-             if(img.id===image.id){
-                 this.images[this.images.indexOf(img)]=image;
-             }
-         }))
-         if(search===''){
-            this.filteredImages=this.images;
-        }else{
-            this.filteredImages=this.performFilter(search);
-            console.log(this.filteredImages.length)
-        }
-         
-         
-     });
-    
+       this.fetchData();
 
-  
-     
     }
     performFilter(searchParam: string): Image[] {
         searchParam = searchParam.toLocaleLowerCase();
@@ -70,7 +72,7 @@ export class HomeComponent {
         this.router.navigate(['/images',id]);
 
     }
-
+  
  
  
 

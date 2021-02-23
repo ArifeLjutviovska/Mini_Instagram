@@ -21,6 +21,7 @@ import { EditImageComponent } from './images/imageEdit/edit-image/edit-image.com
 import {FileUploadModule} from 'ng2-file-upload';
 import { ReversePipe } from './shared/reversePipe';
 
+
 @NgModule({
   declarations: [
     AppComponent,
