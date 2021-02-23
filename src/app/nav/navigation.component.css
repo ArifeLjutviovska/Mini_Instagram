@@ -30,11 +30,16 @@
     color: black;
 
 }
-.login{
+.navItemTitle{
     color: black;
     font-weight: bold;
-    font-style: italic;
     font-size: xx-large;
     font-family: 'Brush Script MT', cursive;
     margin-left: -120px;
+}
+a{
+    text-decoration: none;
+}
+.imageicon{
+    font-size: x-large;
 }

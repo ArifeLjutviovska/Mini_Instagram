@@ -1,0 +1,48 @@
+<div >
+<div class="profile-img row">
+    <div class="col">
+      <img   src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" alt="profile-img"  />
+   </div>
+   <div class="col">
+    <div class="username" style="margin-top:20px;">{{user?.username}}  <button class="button">Edit Profile</button></div>
+    <div class="username" style="font-weight: bold;margin-top:20px;">{{user?.name}}</div>
+    <div class="username">{{user?.email}}</div>
+    <div class="username">{{user?.phone}}</div>
+    <div class="username">{{user?.website}}</div>
+    <div class="username" >{{user?.address?.street}}, {{user?.address?.suite}}, {{user?.address?.city}} , {{user?.address?.zipcode}} </div>
+    <div class="username" >{{user?.company?.name}} - {{user?.company?.catchPhrase}} </div>
+       
+   </div>
+</div>
+<div class="container">
+    <br>
+    <br>
+    <section class="section">
+        <div class="container">
+            <div class="tabs is-centered">
+          
+                    <button (click)="imagesClicked()" class="btn btn-default imagesButton img"  [ngClass]="{ 'is-active': isSelectedTab === 'Images' }">
+                       
+                            <span class="icon is-small ">
+                                <i class="fa fa-image imgLogo"></i>
+                            </span>
+                            <span>IMAGES</span>
+                      
+                    </button>
+                    <button (click)="uploadClicked()" class="btn btn-default imagesButton upload"  [ngClass]="{ 'is-active': isSelectedTab === 'Upload' }">
+                       
+                        <span class="icon is-small ">
+                            <i class="fa fa-image imgLogo"></i>
+                        </span>
+                        <span>UPLOAD IMAGE</span>
+                  
+                </button>
+            
+                
+            </div>
+        </div>
+    </section>
+  <hr>
+   <user *ngIf="isSelectedTab==='Images'" [user]="user" [albums]="albums" ></user>
+</div>
+</div>

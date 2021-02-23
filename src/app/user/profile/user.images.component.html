@@ -1,0 +1,7 @@
+
+<div class="row">
+  <div  *ngFor="let img of userImages | numberelement:3; let i = index">
+    <a [routerLink]="['/images',img.id]"><img [src]="img.thumbnailUrl"/></a>
+
+  </div>
+</div>

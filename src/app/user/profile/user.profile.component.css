@@ -1,0 +1,48 @@
+img{
+    border-radius: 50%;
+}
+.profile-img{
+    margin-left: 850px;
+    margin-top: 80px;
+}
+
+.username{
+    margin-left: -500px;
+    font-size: large;
+
+}
+.button{
+    background-color: transparent;
+    border: 1px #cfcfcf solid;
+    margin-left: 20px;
+}
+.imagesButton{
+    margin-bottom: -20px;
+    font-family: Garamond, serif;
+    font-weight: bold;
+    color: #a6a6a6;
+    padding: 5px;
+}
+.imgLogo{
+    margin-right: 10px;
+
+}
+.upload{
+    margin-left: 50px;
+}
+.img{
+    margin-left: 480px;
+}
+button:active{
+    color: black;
+    outline: none !important;
+   box-shadow: none !important;
+   border:none;
+}
+
+button:focus {
+    color: black;
+    outline: none !important;
+   box-shadow: none !important;
+   border-bottom: black solid 1px;
+}

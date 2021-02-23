@@ -14,10 +14,10 @@ export class InfoService{
     readonly users='https://jsonplaceholder.typicode.com/users';
     readonly albums_root='https://jsonplaceholder.typicode.com/albums';
     
+    public deletedImageId:number[]=[];
 
 
-
-
+   
     constructor(private http:HttpClient){}
 
     getImages():Observable<Image[]>{
@@ -26,6 +26,15 @@ export class InfoService{
             catchError(this.handleError)
         );
 
+    }
+    deleteImage(id){
+      this.deletedImageId.push(id);
+      this.http.delete<Image>(this.photos+`/${id}`).pipe(catchError(this.handleError)).subscribe(response=>console.log(response));
+    }
+    updateImage(id,body){
+      console.log(id)
+      console.log(body)
+      return this.http.put<Image>(this.photos+`/${id}`,body).pipe(catchError(this.handleError));
     }
   
     getImageById(id):Observable<Image>{
@@ -54,7 +63,18 @@ export class InfoService{
        );
 
    }
- 
+   getAlbumsByUserId(id):Observable<Album[]>{
+     
+    return  this.http.get<Album[]>(this.albums_root+`?userId=${id}`).pipe(
+         catchError(this.handleError)
+     );
+
+ }
+ getImagesByAlbumId(id):Observable<Image[]>{
+   return this.http.get<Image[]>(this.photos+`?albumId=${id}`).pipe(catchError(this.handleError));
+ }
+
+
 
  
   getUserByUserId(id:number):Observable<User>{

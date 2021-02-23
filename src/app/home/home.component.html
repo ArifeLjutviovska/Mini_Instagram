@@ -2,8 +2,16 @@
    <div class="row">
         <div class="col-lg-10">
            <div class="row">
-             <div *ngFor="let img of images | thirdelement; let i = index">
-             <postList [image]="img" ></postList>
+             <div *ngFor="let img of images | numberelement:3; let i = index">
+               <div class="col-md-3 ">
+                  <div class="post">
+                      
+                      <img class="imagesOfPosts" [src]="img?.thumbnailUrl">
+                      <div class="imageTitle"><b>Title: </b>{{img?.title}}</div>
+                      <button class="btn btn-primary seeDetailsButton" (click)="seeImageDetails(img.id)">See Details</button>
+                  </div>
+                  </div>
+                 
              </div>
           </div>
         </div>
@@ -11,15 +19,9 @@
         <div class="users">
             <h5 class="title">Users:</h5>
             <div  *ngFor="let user of users">
-                  <div class="row">
-                    <div class="col-9">
-                      <span class="userName">{{user.name}}</span>
-                    </div>
-                    <div class="col">
-                      <a class="seeProfile">See profile</a>
-                   </div>
-            </div>
-        </div> 
+                  <user-list [user]="user"></user-list>
+               
+           </div> 
       </div>
    </div>
 </div>

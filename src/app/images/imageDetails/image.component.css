@@ -1,0 +1,69 @@
+.crd{
+    height: 800px;
+    width: 1050px;
+    margin-top: 60px;
+    margin-left: 50px;
+    background-color: white;
+    border: 1px #f2f2f2 solid;
+}
+.img{
+    width: 700px;
+    height: 800px;
+}
+
+.user{
+    margin-left: -180px;
+    margin-top: 10px;
+    
+}
+hr{
+    margin-left: -200px;
+    width: 350px;
+    margin-top:19px;
+
+}
+.imgUser{
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    padding: 5;
+}
+.username{
+    margin-top: 60px;
+    font-size: large;
+    
+}
+.usernameTitle{
+    margin-left: 10px;
+    color: black;
+}
+a{
+    text-decoration: none;
+}
+.imagesButton{
+    margin-bottom: -20px;
+    font-family: Garamond, serif;
+    font-weight: bold;
+    font-size: larger;
+    color: #a6a6a6;
+    padding: 5px;
+}
+button:active{
+    color: black;
+    outline: none !important;
+   box-shadow: none !important;
+   border:none;
+}
+
+button:focus {
+    color: black;
+    outline: none !important;
+   box-shadow: none !important;
+   border-bottom: black solid 1px;
+}
+.edit{
+    margin-left:-120px;
+}
+.delete{
+    margin-left:80px;
+}

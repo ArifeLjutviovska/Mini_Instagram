@@ -6,14 +6,16 @@ import { HomeComponent } from './home/home.component';
 import { InfoService } from './shared/info.service';
 import { AuthService } from './shared/auth.service';
 import { NavigationComponent } from './nav/navigation.component';
-import { PostComponent } from './home/post/posts.component';
 import { FormsModule } from '@angular/forms';
-import { PostListComponent } from './home/postList/postList.component';
-import { ThirdElementPipe } from './home/shared/thirdElement.pipe';
+import { NumberElementPipe } from './shared/numberElement.pipe';
 import { RouterModule } from '@angular/router';
 import { appRoutes } from './shared/routes';
-import { ImageComponent } from './imageDetails/image.component';
-
+import { ImageComponent } from './images/imageDetails/image.component';
+import { UserListComponent } from './home/listUsers/userList.component';
+import { UserProfileComponent } from './user/profile/user.profile.component';
+import { UserComponent } from './user/profile/user.component';
+import { UserImageComponent } from './user/profile/user.images.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -21,20 +23,26 @@ import { ImageComponent } from './imageDetails/image.component';
     AppComponent,
     HomeComponent,
     NavigationComponent,
-    PostComponent,
-   PostListComponent,
-   ThirdElementPipe,
+   NumberElementPipe,
    ImageComponent,
+   UserListComponent,
+   UserProfileComponent,
+   UserComponent,
+   UserImageComponent,
 
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(appRoutes)
 
   ],
-  providers: [InfoService,AuthService],
+  providers: [
+    InfoService,
+    AuthService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
