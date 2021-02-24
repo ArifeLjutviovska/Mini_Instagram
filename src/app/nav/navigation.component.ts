@@ -11,19 +11,13 @@ import { InfoService } from "../shared/info.service";
     ]
 })
 export class NavigationComponent implements OnInit{
-    searchForm:FormGroup;
-    search:FormControl;
+
+    search:string='';
 
     constructor(private infoService:InfoService,private router:Router){}
     ngOnInit(){
-        this.search=new FormControl();
-        this.searchForm=new FormGroup({
-            search:this.search
-        })
+       
     }
 
-   searchClicked(formValues){
-
-      this.router.navigate(['images'],{ queryParams: { searchParam: formValues.search} })
-   }
+   
 }

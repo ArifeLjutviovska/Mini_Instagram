@@ -22,6 +22,7 @@ import {FileUploadModule} from 'ng2-file-upload';
 import { ReversePipe } from './shared/reversePipe';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,7 +36,8 @@ import { ReversePipe } from './shared/reversePipe';
    UserImageComponent,
    UploadImageComponent,
    EditImageComponent,
-   ReversePipe
+   ReversePipe,
+
 
   ],
   imports: [

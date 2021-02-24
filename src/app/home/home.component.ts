@@ -18,6 +18,7 @@ export class HomeComponent {
     images:Image[];
     users:User[];
     filteredImages:Image[];
+    
 
 
 
@@ -25,17 +26,12 @@ export class HomeComponent {
     constructor(private infoService:InfoService,private router:Router,private route:ActivatedRoute){
      
     }
-    fetchData(){
-        let search:string='';
+    
+
+    ngOnInit(){
         this.infoService.getUsers().subscribe(users=>this.users=users);
-        this.route.queryParams.pipe(
-            filter(params => params.searchParam)
-        )
-        .subscribe(params => {
-          search = params.searchParam;
-        }
-      );
-        
+        let search:string=this.route.snapshot.queryParamMap.get('searchParam')||'';
+
         this.infoService.getImages().subscribe(images=>{
             this.images=images.filter(img=>!this.infoService.deletedImageId.includes(img.id));
             this.infoService.uploadedImages.forEach(img=>this.images.push(img));
@@ -46,21 +42,19 @@ export class HomeComponent {
                     this.images[this.images.indexOf(img)]=image;
                 }
             }))
+          
             if(search===''){
-               this.filteredImages=this.images;
-           }else{
-               this.filteredImages=this.performFilter(search);
-               console.log(this.filteredImages.length)
-           }
+                this.filteredImages=this.images;
+            }else{
+                this.filteredImages=this.performFilter(search);
+            }
+             
+               
+           
             
             
         });
        
-   
-    }
-
-    ngOnInit(){
-       this.fetchData();
 
     }
     performFilter(searchParam: string): Image[] {
