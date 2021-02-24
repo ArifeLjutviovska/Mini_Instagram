@@ -1,9 +1,19 @@
 import { Routes } from '@angular/router'
-import { HomeComponent } from '../home/home.component'
-import { ImageComponent } from '../images/imageDetails/image.component'
-import { EditImageComponent } from '../images/imageEdit/edit-image/edit-image.component'
-import { UploadImageComponent } from '../images/imageUpload/upload-image/upload-image.component'
-import { UserProfileComponent } from '../user/profile/user.profile.component'
+import {
+  HomeComponent,
+
+} from '../home/index';
+
+import {
+ImageComponent,
+EditImageComponent,
+UploadImageComponent
+} from '../images/index';
+
+import {
+  UserProfileComponent
+
+} from '../user/profile/index';
 
 
 

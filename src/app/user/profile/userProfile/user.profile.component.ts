@@ -1,9 +1,9 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
-import { Album } from "../../models/album";
-import { Image } from "../../models/image";
-import { User } from "../../models/user";
-import { InfoService } from "../../shared/info.service";
+import { Album } from "../../../models/album";
+import { Image } from "../../../models/image";
+import { User } from "../../../models/user";
+import { InfoService } from "../../../shared/info.service";
 
 @Component({
     templateUrl:'./user.profile.component.html',

@@ -1,15 +1,15 @@
 import { Component, Input, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
-import { Album } from "../../models/album";
-import { Image } from "../../models/image";
-import { User } from "../../models/user";
-import { InfoService } from "../../shared/info.service";
+import { Album } from "../../../models/album";
+import { Image } from "../../../models/image";
+import { User } from "../../../models/user";
+import { InfoService } from "../../../shared/info.service";
 
 @Component({
     selector:'user',
     templateUrl:'./user.component.html',
     styleUrls:[
-        './user.profile.component.css'
+        '../userProfile/user.profile.component.css'
     ]
 })
 export class UserComponent implements OnInit{
